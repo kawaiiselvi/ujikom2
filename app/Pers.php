@@ -8,5 +8,5 @@ class Pers extends Model
 {
     //
     protected $table = 'perusahaans';
-    protected  $fillable = ['perusahaan','jabatan','lokasi','pendidikan','gaji'];
+    protected  $fillable = ['perusahaan','nama','jabatan','lokasi','pendidikan','gaji'];
 }

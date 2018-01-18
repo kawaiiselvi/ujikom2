@@ -45,11 +45,12 @@ class PersController extends Controller
         //
         $this->validate($request, [
             'perusahaan'=>'required',
+            'nama'=>'required',
             'jabatan'=>'required',
             'lokasi'=>'required',
             'pendidikan'=>'required',
             'gaji'=>'required']);
-        $pers = Pers::create($request->only('perusahaan','jabatan','lokasi','pendidikan','gaji'));
+        $pers = Pers::create($request->only('perusahaan','nama','jabatan','lokasi','pendidikan','gaji'));
         Session::flash("flash_notification", [
             "level"=>"success",
             "message"=>"Berhasil Menyimpan $pers->perusahaan"]);

@@ -19,19 +19,25 @@
 				<thead>
 					<tr>
 						<th>Judul</th>
+						<th>Isi Tips</th>
 						<th colspan="2">Action</th>
 					</tr>
 				</thead>
-			</table>
-				<div class="panel-body">
-						
-					</p>
-					<td>Tips</td>
+				<tbody>
 					@foreach($tip as $data)
 					<tr> 
 						<td>{{$data->Tips}}</td>
+						<td>{{$data->Isi}}</td>
+						<td><a class="btn btn-warning" href="tips/{{$data->id}}/edit">Edit</a></td>
+						<td><form action="{{route('tips.destroy',$data->id)}}" method="post">
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" >
+								<input type="submit" class="btn btn-danger" value="Delete">{{csrf_field()}}
+						</form></td>
 					</tr>
 					@endforeach
+		</tbody>
+	</table>
 				</div>
 			</div>
 		</div>

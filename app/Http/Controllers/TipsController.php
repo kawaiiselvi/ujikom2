@@ -39,13 +39,11 @@ class TipsController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, [
-            'Tips'=>'required']);
-        $tip = Tip::create($request->only('Tips'));
-        Session::flash("flash_notification", [
-            "level"=>"success",
-            "message"=>"Berhasil Menyimpan $tip->Tips"]);
-        return redirect()->route('tips.index');
+        $tip = new Tip();
+        $tip->Tips = $request->Tips;
+        $tip->Isi = $request->Isi;
+        $tip->save();
+        return redirect('tips.index');
     }
 
     /**
@@ -57,6 +55,7 @@ class TipsController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
@@ -68,6 +67,8 @@ class TipsController extends Controller
     public function edit($id)
     {
         //
+        $tip = Tip::findOrFail($id);
+        return view('tips.edit', compact('tip'));
     }
 
     /**
@@ -80,6 +81,11 @@ class TipsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $tip = Tip::findOrFail($id);
+        $tip->Tips = $request->Tips;
+        $tip->Isi = $request->Isi;
+        $tip->save();
+        return redirect()->route('tips.index');
     }
 
     /**
@@ -91,5 +97,8 @@ class TipsController extends Controller
     public function destroy($id)
     {
         //
+        $tip = Tip::findOrFail($id);
+        $tip->delete();
+        return redirect()->route('tips.index');
     }
 }

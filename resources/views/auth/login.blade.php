@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-primary">
+            	
                 <center>
                 <div class="panel-heading">
                 <font size="6" face="Impact" color="#1E90FF">GetJobs.com</font>

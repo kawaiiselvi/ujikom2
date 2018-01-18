@@ -3,26 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use Session;
 
-class PekerjasController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
         //
-        $pekerja = User::all();
-        return view('pekerjas.index', compact('pekerja'));
     }
 
     /**
@@ -44,12 +35,6 @@ class PekerjasController extends Controller
     public function store(Request $request)
     {
         //
-        $pekerja = new Pekerja();
-        $pekerja->name = $request->a;
-        $pekerja->email = $request->b;
-        $pekerja->save();
-        return redirect('/admin/pekerja');
-        
     }
 
     /**
@@ -61,8 +46,6 @@ class PekerjasController extends Controller
     public function show($id)
     {
         //
-        $pekerja = Pers::find($id);
-        return view('pekerjas.show', compact('pekerja'));
     }
 
     /**
@@ -97,8 +80,5 @@ class PekerjasController extends Controller
     public function destroy($id)
     {
         //
-        $pekerja = Pekerja::findOrFail($id);
-        $pekerja->delete();
-        return redirect('/admin/pekerja');
     }
 }

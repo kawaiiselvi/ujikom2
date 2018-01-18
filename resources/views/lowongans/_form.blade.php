@@ -1,8 +1,16 @@
 <div class="form-group{{ $errors->has('name') ? 'has-error' : '' }}">
-	{!! Form::label('perusahaan','Nama Perusahaan',['class'=>'col-md-2 control-label','readonly']) !!}
+	{!! Form::label('perusahaan','Membutuhkan',['class'=>'col-md-2 control-label','readonly']) !!}
 	<div class="col-md-4">
 		{!! Form::text('perusahaan',null,['class'=>'form-control']) !!}
 		{!! $errors->first('perusahaan', '<p class="help-block">:message</p>') !!}
+	</div>
+</div>
+
+<div class="form-group{{ $errors->has('name') ? 'has-error' : '' }}">
+	{!! Form::label('nama','Nama Perusahaan',['class'=>'col-md-2 control-label','readonly']) !!}
+	<div class="col-md-4">
+		{!! Form::text('nama',null,['class'=>'form-control']) !!}
+		{!! $errors->first('nama', '<p class="help-block">:message</p>') !!}
 	</div>
 </div>
 

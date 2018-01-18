@@ -14,10 +14,16 @@
 
 				<div class="panel-body">
 					<div class="col-md-6">
-						Nama Perusahaan
+						Membutuhkan
 					</div>
 					<div class="col-md-6">
 						{{$loker->perusahaan}}
+					</div>
+					<div class="col-md-6">
+						Nama Perusahaan
+					</div>
+					<div class="col-md-6">
+						{{$loker->nama}}
 					</div>
 					<div class="col-md-6">
 						Jabatan
